@@ -1,7 +1,9 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "bin": { "gendiff": "./bin/gendiff.js" },
+  "bin": {
+    "gendiff": "./bin/gendiff.js"
+  },
   "description": "[![Actions Status](https://github.com/Max-climber/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Max-climber/frontend-project-46/actions)",
   "homepage": "https://github.com/Max-climber/frontend-project-46#readme",
   "bugs": {
@@ -19,6 +21,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "commander": "^13.1.0"
+    "commander": "^13.1.0",
+    "lodash": "^4.17.21"
   }
 }
