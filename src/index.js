@@ -1,7 +1,7 @@
 import path from 'path';
 import fs from 'fs';
 import _ from 'lodash';
-import parser from './parser.js';
+import parser from './parser';
 
 export default (filepath1, filepath2) => {
   const content1 = fs.readFileSync(path.resolve(filepath1), 'utf-8');

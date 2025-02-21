@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import app from '../src/index.js';
+import app from '../src/index';
 
 const program = new Command();
 
@@ -16,6 +16,7 @@ program
   .action((filepath1, filepath2, options) => {
     const { format } = options;
     const diff = app(filepath1, filepath2, format);
+    // eslint-disable-next-line no-console
     console.log(diff);
   });
 
