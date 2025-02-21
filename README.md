@@ -7,4 +7,3 @@
 
 [![genDiff](https://github.com/Max-climber/frontend-project-46/actions/workflows/genDiff.yml/badge.svg)](https://github.com/Max-climber/frontend-project-46/actions/workflows/genDiff.yml)
 
-[![hexlet-check](https://github.com/Max-climber/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Max-climber/frontend-project-46/actions/workflows/hexlet-check.yml)
