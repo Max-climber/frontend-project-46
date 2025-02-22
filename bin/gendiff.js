@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { Command } from 'commander';
-import app from '../src/index';
+import app from '../src/index.js';
 
 const program = new Command();
 
