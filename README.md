@@ -9,3 +9,6 @@
 ### Asciinema genDiffJsonFiles:
 
 [genDiffJsonFiles](https://asciinema.org/a/JoesTXqFfDeU6vaDIvETRyIcm)
+
+### Asciinema genDiffYamlFiles:
+[genDiffYamlFiles](https://asciinema.org/a/QLuTXch9J7fnpg7uxo4BBbviG)

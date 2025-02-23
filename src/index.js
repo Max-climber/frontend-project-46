@@ -7,8 +7,8 @@ export default (filepath1, filepath2) => {
   const content1 = fs.readFileSync(path.resolve(filepath1), 'utf-8');
   const content2 = fs.readFileSync(path.resolve(filepath2), 'utf-8');
 
-  const parsedData1 = parser(content1);
-  const parsedData2 = parser(content2);
+  const parsedData1 = parser(content1, path.extname(filepath1));
+  const parsedData2 = parser(content2, path.extname(filepath2));
 
   const genDiff = (obj1, obj2) => {
     const keys1 = Object.keys(obj1);

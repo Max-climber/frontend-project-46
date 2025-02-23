@@ -14,7 +14,15 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 test('genDiff for flat json', () => {
   const filePath1 = getFixturePath('file1.json');
   const filePath2 = getFixturePath('file2.json');
-  const expected = readFile('expectedJson').trim();
+  const expected = readFile('expectedDiffJson.txt').trim();
 
   expect(genDiff(filePath1, filePath2)).toEqual(expected);
 });
+
+test('genDiff for flat yaml', () => {
+  const filePath1 = getFixturePath('file1.yml');
+  const filePath2 = getFixturePath('file2.yml');
+  const expected = readFile('expectedDiffYaml.txt').trim();
+
+  expect(genDiff(filePath1, filePath2)).toEqual(expected);
+})

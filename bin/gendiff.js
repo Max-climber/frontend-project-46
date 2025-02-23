@@ -9,7 +9,7 @@ program
   .name('gendiff')
   .description('Compares two configuration files and shows a difference.')
   .version('1.0.0', '-V, --version', 'output the version number')
-  .option('-f, --format [type]', 'output format')
+  .option('-f, --format [type]', 'output format', 'stylish')
   .argument('<filepath1>', 'path to the first file')
   .argument('<filepath2>', 'path to the second file')
   .helpOption('-h, --help', 'output usage information')
