@@ -25,4 +25,4 @@ test('genDiff for flat yaml', () => {
   const expected = readFile('expectedDiffYaml.txt').trim();
 
   expect(genDiff(filePath1, filePath2)).toEqual(expected);
-})
+});
