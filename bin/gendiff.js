@@ -16,7 +16,7 @@ program
   .action((filepath1, filepath2, options) => {
     const { format } = options;
     const diff = app(filepath1, filepath2, format);
-    // eslint-disable-next-line no-console
+
     console.log(diff);
   });
 
