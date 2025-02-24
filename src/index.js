@@ -34,41 +34,52 @@ export default (filepath1, filepath2) => {
 
       return {type: 'changed', key, oldValue: obj1[key], newValue: obj2[key]};
     })
-    const stringify = (node1, node2, depth, spacesCount) => {
-        
-  
-        const replacer = ' ';
-        const shiftLeft = 2;
-        const shift = depth * spacesCount;
-  
-        const result = keys.map((key) => {
-        
-          if( _.isObject(node1[key]) && _.isObject(node2[key]) ) {
-            return `${replacer.repeat(shift)}${key}: {\n${iter(node1[key], node2[key], depth + 1, 4)}\n${replacer.repeat(shift)}}`;
-          } else {
-            if (!Object.hasOwn(node2, key)) {
-              return `${replacer.repeat(shift)}- ${key}: ${_.isObject(node1[key]) ? `{${node1[key]}}` : node1[key]}`;
-            } if (!Object.hasOwn(node1, key)) {
-                return `${replacer.repeat(shift)}+ ${key}: ${_.isObject(node2[key]) ? `{${node2[key]}}` : node2[key]}`;
-            } if (node1[key] === node2[key]) {
-                return `${replacer.repeat(shift + shiftLeft)}${key}: ${_.isObject(node1[key]) ? `{${node1[key]}}` : node1[key]}`;
-            }
-            return `${replacer.repeat(shift - shiftLeft)}- ${key}: ${_.isObject(node1[key]) ? `{${node1[key]}}` : node1[key]}\n${replacer.repeat(shift - shiftLeft)}+ ${key}: ${_.isObject(node2[key]) ? `{${node1[key]}}` : node2[key]}`;
-          }
-  
-        })
-        .join('\n');
-  
-        return result;
+  }
+
+  const stringify = (value, depth = 1) => {
+    if (!_.isObject(value)) {
+      return value;
     }
-    return `{\n${stringify(obj1, obj2, 1, 4)}\n}`;
-  };
-  
+    const spacesCount = 4;
+    const indent = ' '.repeat(depth * spacesCount);
+    const entries = Object
+      .entries(value)
+      .map(([key, val]) => `${indent}${key}: ${stringify(val, depth + 1)}`)
+      .join('\n');
+
+    return `{\n${entries}\n${indent}}`
+  }
+    
+  const stylish = (AST, depth = 1) => {
+    const spacesCount = 4;
+    const shiftLeft = 2;
+    const indent = ' '.repeat(depth * spacesCount - shiftLeft);
+    const result = AST
+    .map((node) => {
+      switch (node.type) {
+        case 'added':
+          return `${indent}+ ${node.key}: ${stringify(node.value, depth)}`;
+        case 'deleted':
+          return `${indent}- ${node.key}: ${stringify(node.value, depth)}`;
+        case 'unchanged':
+          return `${indent}  ${node.key}: ${stringify(node.value, depth)}`;
+        case 'changed':
+          return `${indent}- ${node.key}: ${stringify(node.oldValue, depth)}\n${indent}+ ${node.key}: ${stringify(node.newValue, depth)}`;  
+        case 'nested':
+          return `${indent}  ${node.key}: {\n${stylish(node.children, depth + 1)}\n${indent}  }`
+        default: 
+          throw new Error(`Unknown type: ${node.type}!`);
+    }
+    })
+    .join('\n');
+
+    return result;
+  }
 
   const genDiff = (obj1, obj2) => {
     const AST = buildAST(obj1, obj2);
-    return `{\n${stylish(AST)}\n}`;
-    };
-
-return genDiff(parsedData1, parsedData2);
+    return `{\n${stylish(AST)}\n}`; 
+  };
+    
+  return genDiff(parsedData1, parsedData2);
 }
