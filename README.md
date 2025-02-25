@@ -12,3 +12,6 @@
 
 ### Asciinema genDiffYamlFiles:
 [genDiffYamlFiles](https://asciinema.org/a/QLuTXch9J7fnpg7uxo4BBbviG)
+
+### Asciinema genDiffNestedJsonAndYamlFiles:
+[genDiffNestedJsonAndYamlFiles](https://asciinema.org/a/Spj6BVpZATBySGrX1LQDGo7Pl)
