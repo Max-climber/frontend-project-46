@@ -14,7 +14,7 @@ const readFile = (filename) => fs.readFileSync(getFixturePath(filename), 'utf-8'
 test('genDiff for flat json', () => {
   const filePath1 = getFixturePath('file1.json');
   const filePath2 = getFixturePath('file2.json');
-  const expected = readFile('expectedDiffJson.txt').trim();
+  const expected = readFile('expectedStylish.txt').trim();
 
   expect(genDiff(filePath1, filePath2)).toEqual(expected);
 });
@@ -22,7 +22,23 @@ test('genDiff for flat json', () => {
 test('genDiff for flat yaml', () => {
   const filePath1 = getFixturePath('file1.yml');
   const filePath2 = getFixturePath('file2.yml');
-  const expected = readFile('expectedDiffYaml.txt').trim();
+  const expected = readFile('expectedStylish.txt').trim();
+
+  expect(genDiff(filePath1, filePath2)).toEqual(expected);
+});
+
+test('genDiff in plain formatt for json', () => {
+  const filePath1 = getFixturePath('file1.json');
+  const filePath2 = getFixturePath('file2.json');
+  const expected = readFile('expectedPlain.txt').trim();
+
+  expect(genDiff(filePath1, filePath2)).toEqual(expected);
+});
+
+test('genDiff in plain formatt for yaml', () => {
+  const filePath1 = getFixturePath('file1.yml');
+  const filePath2 = getFixturePath('file2.yml');
+  const expected = readFile('expectedPlain.txt').trim();
 
   expect(genDiff(filePath1, filePath2)).toEqual(expected);
 });
