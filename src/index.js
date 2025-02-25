@@ -41,13 +41,13 @@ export default (filepath1, filepath2) => {
       return value;
     }
     const spacesCount = 4;
-    const indent = ' '.repeat(depth * spacesCount);
+    const indent = ' '.repeat((depth + 1) * spacesCount - 2)
     const entries = Object
       .entries(value)
-      .map(([key, val]) => `${indent}${key}: ${stringify(val, depth + 1)}`)
+      .map(([key, val]) => `${indent}  ${key}: ${stringify(val, depth + 1)}`)
       .join('\n');
 
-    return `{\n${entries}\n${indent}}`
+    return `{\n${entries}\n${indent}  }`
   }
     
   const stylish = (AST, depth = 1) => {
