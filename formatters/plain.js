@@ -1,28 +1,26 @@
-import stringifyPlain from "../src/stringifyPlain.js";
+import plain from "../src/plain.js";
 
-const plain = (AST) => {
+export default (AST) => {
 
     const iter = (node, path) => {
       const property = `${path}${node.key}`;
 
       switch (node.type) {
         case 'added':
-          return `Property '${property}' was added with value: ${stringifyPlain(node.value)}`;
+          return `Property '${property}' was added with value: ${plain(node.value)}`;
         case 'deleted':
           return `Property '${property}' was removed`;
         case 'changed':
-          return `Property '${property}' was updated. From ${stringifyPlain(node.oldValue)} to ${stringifyPlain(node.newValue)}`;
+          return `Property '${property}' was updated. From ${plain(node.oldValue)} to ${plain(node.newValue)}`;
         case 'nested':
-          return node.children.map((child) => iter(child, `${property}.`));
+          return node.children.map((child) => iter(child, `${property}.`)).filter(Boolean).join('\n');
         default:
-          return null; //тут я не уверен, что хорошее решение, но сделал для того, чтобы .filter(Boolean) отсекал значения типа 'unchanged'
+          return null; 
       }
   };
 
-  return AST  
-    .flatMap((node) => iter(node, ''))
-    .filter(Boolean)                
-    .join('\n'); 
+  return AST   
+  .filter(Boolean)
+  .flatMap((node) => iter(node, ''))
+  .join('\n'); 
 };
-
-  export default plain;

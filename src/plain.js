@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const stringifyPlain = (value) => {
+const plain = (value) => {
     if (_.isObject(value)) {
         return `[complex value]`;
       }
@@ -10,4 +10,4 @@ const stringifyPlain = (value) => {
     return String(value)
 };
 
-export default stringifyPlain;
+export default plain;

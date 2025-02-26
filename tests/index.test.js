@@ -32,7 +32,7 @@ test('genDiff in plain formatt for json', () => {
   const filePath2 = getFixturePath('file2.json');
   const expected = readFile('expectedPlain.txt').trim();
 
-  expect(genDiff(filePath1, filePath2)).toEqual(expected);
+  expect(genDiff(filePath1, filePath2, 'plain')).toEqual(expected);
 });
 
 test('genDiff in plain formatt for yaml', () => {
@@ -40,5 +40,5 @@ test('genDiff in plain formatt for yaml', () => {
   const filePath2 = getFixturePath('file2.yml');
   const expected = readFile('expectedPlain.txt').trim();
 
-  expect(genDiff(filePath1, filePath2)).toEqual(expected);
+  expect(genDiff(filePath1, filePath2, 'plain')).toEqual(expected);
 });

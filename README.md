@@ -15,3 +15,6 @@
 
 ### Asciinema genDiffNestedJsonAndYamlFiles:
 [genDiffNestedJsonAndYamlFiles](https://asciinema.org/a/Spj6BVpZATBySGrX1LQDGo7Pl)
+
+### Asciinema genDiffinPlainAndStylish:
+[genDiffinPlainAndStylish](https://asciinema.org/a/LvGiwSbsWS3IFcrZSrrYX8xH8)

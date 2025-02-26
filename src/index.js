@@ -42,7 +42,7 @@ export default (filepath1, filepath2, format = 'stylish') => {
   const genDiff = (obj1, obj2) => {
     const AST = buildAST(obj1, obj2);
     const formatter = getFormatter(format);
-    return `{\n${formatter(AST)}\n}`;
+    return `${formatter(AST)}`;
   };
 
   return genDiff(parsedData1, parsedData2);
