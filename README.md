@@ -18,3 +18,6 @@
 
 ### Asciinema genDiffinPlainAndStylish:
 [genDiffinPlainAndStylish](https://asciinema.org/a/LvGiwSbsWS3IFcrZSrrYX8xH8)
+
+### Asciinema genDiffinJsonFormat:
+[genDiffinJsonFormat](https://asciinema.org/a/mrnKRxinQHqVfXAfipiIA0gJ0)

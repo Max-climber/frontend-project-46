@@ -33,11 +33,11 @@ export default (filepath1, filepath2, format = 'stylish') => {
         return { type: 'unchanged', key, value: obj1[key] };
       }
 
-      return { type: 'changed', key, oldValue: obj1[key], newValue: obj2[key] };
+      return {
+        type: 'changed', key, oldValue: obj1[key], newValue: obj2[key],
+      };
     });
   };
-
-  
 
   const genDiff = (obj1, obj2) => {
     const AST = buildAST(obj1, obj2);
