@@ -42,6 +42,9 @@ export default (filepath1, filepath2, format = 'stylish') => {
   const genDiff = (obj1, obj2) => {
     const AST = buildAST(obj1, obj2);
     const formatter = getFormatter(format);
+    if (!formatter) {
+      throw new Error(`Unknown format: ${format}`);
+    }
     return `${formatter(AST)}`;
   };
 
