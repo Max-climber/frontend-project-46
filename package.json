@@ -21,7 +21,7 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "NODE_OPTIONS=--experimental-vm-modules jest --coverage"
+    "test": "jest --coverage --watchAll"
   },
   "dependencies": {
     "commander": "^13.1.0",
