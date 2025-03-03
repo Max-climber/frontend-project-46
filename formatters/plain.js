@@ -19,7 +19,7 @@ export default (AST) => {
   };
 
   return AST
-    .filter(Boolean)
     .flatMap((node) => iter(node, ''))
+    .filter(Boolean)
     .join('\n');
 };
