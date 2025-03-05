@@ -1,4 +1,4 @@
-import plain from '../src/plain.js';
+import plain from '../plain.js';
 
 export default (AST) => {
   const iter = (node, path) => {
