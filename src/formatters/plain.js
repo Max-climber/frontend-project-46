@@ -1,6 +1,16 @@
-import plain from '../plain.js';
+import _ from 'lodash';
 
-export default (AST) => {
+const plain = (value) => {
+  if (_.isObject(value)) {
+    return '[complex value]';
+  }
+  if (typeof (value) === 'string') {
+    return `'${value}'`;
+  }
+  return String(value);
+};
+
+const plainFormat = (AST) => {
   const iter = (node, path) => {
     const property = `${path}${node.key}`;
 
@@ -23,3 +33,5 @@ export default (AST) => {
     .filter(Boolean)
     .join('\n');
 };
+
+export default plainFormat

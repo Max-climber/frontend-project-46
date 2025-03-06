@@ -1,10 +1,14 @@
 import yaml from 'js-yaml';
 
 export default (data, format) => {
-  if (format === '.json') {
-    return JSON.parse(data);
-  } if (format === '.yml' || format === '.yaml') {
-    return yaml.load(data);
+  switch(format) {
+    case '.json': {
+      return JSON.parse(data);
+    } 
+    case '.yml' || '.yaml': {
+      return yaml.load(data);
+    }
+    default:
+      throw Error('Invalid format');
   }
-  throw Error('Invalid format');
 };
