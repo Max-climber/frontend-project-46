@@ -34,4 +34,4 @@ const plainFormat = (AST) => {
     .join('\n');
 };
 
-export default plainFormat
+export default plainFormat;
